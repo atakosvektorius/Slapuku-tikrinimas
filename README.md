@@ -1,12 +1,13 @@
 # BDAR ir slapuku atitikties tikrinimas 
 
 ## Atlikta 2022-12-10
-Pagal DomReg.lt duomenis yra užregistruoti 226446 domenai.
-Į Top 10 milijono lietuvišku domenų patenka 5524, o tai grubiai yra 2.5% nuo visų registruotu.
+Pagal DomReg.lt duomenis jau yra užregistruoti 226446 domenai.
+Iš visų Top 10 milijono lietuvišku domenų yra 5524, o tai apie 2.5% nuo visų registruotu.
 
 
+Daroma prielaida, kad Google Chrome webdriver ir selenium yra įdiegta.
 
-## Daroma prielaida, kad Google Chrome webdriver ir selenium yra įdiegta.
+## Paleidimas ant macOS
 ```
 git clone https://github.com/atakosvektorius/Slapuku-tikrinimas
 cd Slapuku-tikrinimas
