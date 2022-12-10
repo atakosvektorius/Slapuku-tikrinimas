@@ -1,28 +1,45 @@
-import time,os
-import json
-# Import the necessary modules
+import os,json
 from selenium import webdriver
 
-# Define a function to open the website links
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKGREEN = '\033[92m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
+
 def open_website_links(file_name):
-  # Open the file containing the website links
   with open(file_name, 'r') as file:
-    # Read each line in the file (which should be a website link)
     for line in file:
-      # Open the website link using Selenium
-      driver = webdriver.Chrome()
-      url = line.rstrip()
       try:
-        driver.get("https://"+url)
-        f = open("cookies.txt", "a")
-        time.sleep(3)
-        output = json.dumps(driver.get_cookies())
-        f.write(output)
+        driver = webdriver.Chrome()
+        url = line.rstrip()
+        driver.get("http://"+url)
+        cookies_list = driver.get_cookies()
+        cookies_dict = {}
+        bdar = 1
+        for cookie in cookies_list:
+          if cookie['name'] != "_ga":
+            bdar +1
+          else: 
+            bdar = 0
+            break
+        f = open("BDAR_compliance.txt", "a")
+        if bdar == 0:
+          print(f"{url} - {bcolors.FAIL}Failed{bcolors.ENDC}")
+          f.write(f"Failed - {url}\n")
+        else:
+          print(f"{url} - {bcolors.OKGREEN}Passed{bcolors.ENDC}")
+          f.write(f"Passed - {url}\n")
         f.close()
         driver.close()
       except:
-        print(f'problema, neatsidaro: {url}')
-        
+        print(f'Problema, neatsidaro: {url}')
 
-# Call the function to open the website links
+
+print(f"Testing BDAR compliance:")
 open_website_links('website_links.txt')
