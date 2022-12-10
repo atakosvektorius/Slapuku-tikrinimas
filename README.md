@@ -1,11 +1,16 @@
 # BDAR ir slapuku atitikties tikrinimas 
 
-## Atlikta 2022-12-10
-Pagal DomReg.lt duomenis jau yra užregistruoti 226446 domenai.
-Iš visų Top 10 milijono lietuvišku domenų yra 5524, o tai apie 2.5% nuo visų registruotu.
+## Tyrimas
+
+Atlikta 2022-12-11 su populiariais domenais, kurie turi .lt galūnę iš viso 5524 (Open PageRank, Top 10 mil., 2022-12-10).
+
+Imties santykis yra 2.5% palyginus su 226446 užregistruotais (DomReg.lt, 2022-12-10).
 
 
-Daroma prielaida, kad Google Chrome webdriver ir selenium yra įdiegta.
+
+
+
+Daroma prielaida, kad Google Chrome webdriver ir selenium yra įdiegti.
 
 ## Paleidimas ant macOS
 ```
@@ -17,3 +22,4 @@ grep -Eo ',\".+\.lt\",' top10milliondomains.csv | sed 's/[\",]//g' > nuorodos.tx
 
 python3 BDAR_Slapukai.py 
 ```
+Pastaba kai kurie domenai neveikia scriptas pakimba, reikia rankinio įsikišimo. 
