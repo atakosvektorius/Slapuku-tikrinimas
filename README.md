@@ -1,13 +1,17 @@
-# cookie_checker
-Check BDAR and Cookie compliance 
+# BDAR ir slapuku atitikties tikrinimas 
 
-
-Please note Alexa.com ranking site is retired on May 1, 2022. 
-
-http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
-
-TLD with .lt is 1139 of 777930
+## Atlikta 2022-12-10
+Pagal DomReg.lt duomenis yra užregistruoti 226446 domenai.
+Į Top 10 milijono lietuvišku domenų patenka 5524, o tai grubiai yra 2.5% nuo visų registruotu.
 
 
 
-python3 BDAR_Cookies.py
+## Daroma prielaida, kad Google Chrome webdriver ir selenium yra įdiegta.
+```
+git clone https://github.com/atakosvektorius/cookie_checker
+wget https://www.domcop.com/files/top/top10milliondomains.csv.zip
+unzip top10milliondomains.csv.zip
+grep -Eo ',\".+\.lt\",' top10milliondomains.csv | sed 's/[\",]//g' > nuorodos.txt
+
+python3 BDAR_Slapukai.py 
+```
