@@ -22,7 +22,7 @@ grep -Eo ',\".+\.lt\",' top10milliondomains.csv | sed 's/[\",]//g' > nuorodos.tx
 
 python3 BDAR_Slapukai.py 
 ```
-Pastaba kai kurie domenai neveikia scriptas pakimba, reikia rankinio įsikišimo. 
+Pastaba kai kurie domenai neaktyvus
 
 Rezultatai beveik puse t.y. 45% neatitinka BDAR:
 
