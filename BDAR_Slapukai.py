@@ -18,7 +18,7 @@ def open_website_links(file_name):
       try:
         driver = webdriver.Chrome()
         url = line.rstrip()
-        driver.get("http://"+url)
+        driver.get("https://"+url)
         cookies_list = driver.get_cookies()
         cookies_dict = {}
         bdar = 1
