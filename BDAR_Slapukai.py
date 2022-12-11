@@ -10,13 +10,14 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+driver = webdriver.Chrome()
+driver.set_page_load_timeout(10)
 
 
 def open_website_links(file_name):
   with open(file_name, 'r') as file:
     for line in file:
       try:
-        driver = webdriver.Chrome()
         url = line.rstrip()
         driver.get("https://"+url)
         cookies_list = driver.get_cookies()
