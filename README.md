@@ -23,3 +23,14 @@ grep -Eo ',\".+\.lt\",' top10milliondomains.csv | sed 's/[\",]//g' > nuorodos.tx
 python3 BDAR_Slapukai.py 
 ```
 Pastaba kai kurie domenai neveikia scriptas pakimba, reikia rankinio įsikišimo. 
+
+Rezultatai beveik puse t.y. 45% neatitinka BDAR:
+
+```
+wc -l BDAR_atitiktis.txt
+4869 BDAR_atitiktis.txt
+
+awk '{print $1}' BDAR_atitiktis.txt | sort  | uniq -c
+2196 Netinka
+2673 Tinka
+```
