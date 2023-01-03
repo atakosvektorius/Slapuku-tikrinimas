@@ -1,5 +1,7 @@
 import os,json
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 
 
 class bcolors:
@@ -13,15 +15,24 @@ class bcolors:
 
 
 
+
 def open_website_links(file_name):
   with open(file_name, 'r') as file:
     for line in file:
       try:
-        driver = webdriver.Chrome()
+        options = Options()
+        options = Options()
+        options.add_argument("--headless")
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--incognito")
+        driver = webdriver.Chrome(chrome_options=options)
         driver.set_page_load_timeout(10)
         url = line.rstrip()
         driver.get("https://"+url)
         cookies_list = driver.get_cookies()
+        source = driver.page_source
+        print(source)
         cookies_dict = {}
         bdar = 1
         for cookie in cookies_list:
