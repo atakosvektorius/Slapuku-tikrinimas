@@ -34,13 +34,11 @@ def open_website_links(file_name):
         cookies_dict = {}
         bdar = 1
         for cookie in cookies_list:
-          if cookie['name'] != "_ga":
-            bdar +1
-          elif cookie['name'] != "_fbp":
-            bdar +1
-          else: 
+          if cookie['name'] == "_ga":
             bdar = 0
             break
+          else:
+            bdar +1 
         f = open("atitiktis.txt", "a")
         if bdar == 0:
           print(f"{url} - {bcolors.FAIL}Netinka{bcolors.ENDC}")
