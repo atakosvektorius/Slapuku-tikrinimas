@@ -36,6 +36,8 @@ def open_website_links(file_name):
         for cookie in cookies_list:
           if cookie['name'] != "_ga":
             bdar +1
+          elif cookie['name'] != "_fbp":
+            bdar +1
           else: 
             bdar = 0
             break
